@@ -546,7 +546,7 @@ proc rd_kafka_new*(`type`: RDKType;
     ##Returns the Kafka handle on success or NULL on error.
     ##To destroy the Kafka handle, use rd_kafka_destroy().
 
-proc rd_kafka_destroy*(rk: RDK) {.cdecl, importc: "rd_kafka_destroy",
+proc rd_kafka_destroy*(rk: PRDK) {.cdecl, importc: "rd_kafka_destroy",
     dynlib: librdkafka.} ##Destroy Kafka handle.
 
 proc rd_kafka_name*(rk: RDK): cstring {.cdecl, importc: "rd_kafka_name",
