@@ -78,10 +78,10 @@ const
   RD_KAFKA_MSG_F_COPY* = 0x00000002
 
 type
-  uint32_t = uint32
-  int32_t = int32
-  int64_t = int64
-  ssize_t = int64
+  uint32_t* = uint32
+  int32_t* = int32
+  int64_t* = int64
+  ssize_t* = int64
 
   mode_t = object
 
