@@ -998,15 +998,21 @@ proc rd_kafka_topic_partition_list_add*(
     importc: "rd_kafka_topic_partition_list_add", dynlib: librdkafka.}
     ##Add topic+partition to list
 
+proc rd_kafka_topic_partition_list_destroy*(
+    topicPartitionList: PRDKTopicPartitionList) {.cdecl,
+    importc: "rd_kafka_topic_partition_list_destroy", dynlib: librdkafka.}
+    ##Free all resources used by the list and the list itself.
+
 proc rd_kafka_consumer_close*(rk: PRDK): RDKResponseError {.cdecl
     importc: "rd_kafka_consumer_close", dynlib: librdkafka.}
     #Close down the KafkaConsumer.
 
-proc rd_kafka_query_watermark_offsets*(rk: PRDK,
-                                       topic: cstring,
-                                       partition: int32_t,
-                                       low: int64_t,
-                                       high: int64_t,
-                                       timeout_ms: cint): RDKResponseError {.cdecl
-  importc: "rd_kafka_query_watermark_offsets", dynlib: librdkafka.}
-  # Offsets are returned in \p *low and \p *high respectively.
+proc rd_kafka_query_watermark_offsets*(
+    rk: PRDK,
+    topic: cstring,
+    partition: int32_t,
+    low: int64_t,
+    high: int64_t,
+    timeout_ms: cint): RDKResponseError {.cdecl
+    importc: "rd_kafka_query_watermark_offsets", dynlib: librdkafka.}
+    # Offsets are returned in \p *low and \p *high respectively.
